@@ -3,38 +3,33 @@ public:
     vector<vector<int>> threeSum(vector<int>& nums) {
 
         vector<vector<int>>ans;
-        sort(nums.begin() , nums.end());
-        
-        for(int i = 0 ; i < nums.size() ; i++){
+        sort(nums.begin(),nums.end());
 
-            //now apply the binary search on the remaning array 
-            if (i > 0 && nums[i] == nums[i - 1]) continue;
+        for(int i = 0 ; i < nums.size()-2 ; i++){
 
-            int start = i+1 ;
-            int end = nums.size()-1;
+            if( i > 0 && nums[i] == nums[i-1]) continue;
 
-            while(start < end){
-                if (nums[start] + nums[end] + nums[i] == 0){
-                    ans.push_back({nums[i],nums[start],nums[end]});
+            int left = i+1;
+            int right = nums.size()-1;
 
-                    while (start < end && nums[start] == nums[start + 1]) start++;
-                    while (start < end && nums[end] == nums[end - 1]) end--;
-                    
-                    start++;
-                    end--;
-
-                } 
-                else if(nums[start] + nums[end] + nums[i] > 0){
-                    end--;
+            while(left < right){
+                
+               
+                if( nums[left] + nums[right] == -nums[i] ){
+                    ans.push_back({nums[i],nums[left],nums[right]});
+                    left++;
+                    right--;
+                     while(left < right && nums[left] == nums[left-1]) left++;
+                    while( left < right && nums[right] == nums[right+1]) right--;
                 }
-                else{
-                    start++;
-                }
+                else if(nums[left]+nums[right] > -nums[i]) right--;
+                else left++;
 
+                
             }
 
         }
-        
         return ans;
-    }       
+        
+    }
 };
