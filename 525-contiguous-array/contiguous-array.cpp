@@ -14,8 +14,7 @@ public:
             if(mp.count(sum)){
                 ans = max(ans,i-mp[sum]);
             }
-
-            if(!mp.count(sum)){
+            else{
                 mp[sum] = i ;
             }
             
