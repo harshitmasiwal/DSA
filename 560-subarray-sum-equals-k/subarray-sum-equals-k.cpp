@@ -1,19 +1,6 @@
 class Solution {
 public:
     int subarraySum(vector<int>& nums, int k) {
-        
-       //brutforce
-    //    int n = nums.size();
-    //    for(int i = 0 ; i < n ; i++){
-    //     for(int j = i ; j < n ; j++){
-    //         for(int k = i ; k < j ; k++){
-
-    //         }
-    //     }
-    //    }
-
-
-    //optimal
     int count = 0 ;
     int n = nums.size();
     vector<int>p(n,0);
