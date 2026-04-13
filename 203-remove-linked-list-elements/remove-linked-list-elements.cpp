@@ -17,23 +17,12 @@ public:
             return NULL;
         }
 
-        // if(temp->next == NULL && temp->val == val){
-        //     return NULL;
-        // }
-
         temp->next = solve(temp->next,val);
 
 
         if(temp->val == val){
             return temp->next;
         }
-
-
-
-        // if(temp->next == NULL && temp->val != val){
-        //     return temp;
-        // }
-
 
         return temp;
     }
