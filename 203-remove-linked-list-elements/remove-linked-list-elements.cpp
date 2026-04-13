@@ -17,9 +17,9 @@ public:
             return NULL;
         }
 
-        if(temp->next == NULL && temp->val == val){
-            return NULL;
-        }
+        // if(temp->next == NULL && temp->val == val){
+        //     return NULL;
+        // }
 
         temp->next = solve(temp->next,val);
 
@@ -30,9 +30,9 @@ public:
 
 
 
-        if(temp->next == NULL && temp->val != val){
-            return temp;
-        }
+        // if(temp->next == NULL && temp->val != val){
+        //     return temp;
+        // }
 
 
         return temp;
