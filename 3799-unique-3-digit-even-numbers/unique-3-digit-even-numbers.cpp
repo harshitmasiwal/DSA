@@ -1,10 +1,10 @@
 class Solution {
 public:
-    set<int>ans;
+    int count = 0 ;
     void solve(vector<int>&map , int pos , int curr){
 
         if(pos == 3  ){
-            ans.insert(curr);
+            count++;
             return ;
         }
 
@@ -34,7 +34,7 @@ public:
         }
         solve(map, 0, 0 );
 
-        return ans.size();
+        return count;
         
     }
 };
