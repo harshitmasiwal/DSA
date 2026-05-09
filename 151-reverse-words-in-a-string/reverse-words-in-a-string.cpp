@@ -2,46 +2,35 @@ class Solution {
 public:
     string reverseWords(string s) {
 
-        vector<string>temp;
-
-        int prev = 0;
-        string x = "" ;
-        for(int i = 0 ; i < s.size() ;i++){
-
-            if(s[i] != ' ' && i == s.size()-1 ){
-                x+= s[i];
-                temp.push_back(x);
+        int n = s.size();
+        string ans = "";
+        string x = "";
+        for(int i = 0 ; i < n ; i++){
+        
+        
+           while(s[i] != ' ' || (s[i] != ' ' && i == n-1 )){
+            if( i < n){
+                 x+=s[i];
+                i++;
+            }
+            else{
                 break;
             }
-
-            if(s[prev] != ' ' && s[i] == ' '){
-                temp.push_back(x);
-                x = "";
-            }            
-            
-            if(s[prev] == ' ' && s[i] != ' '){
-                x+=s[i];
+           
+           }
+        
+           //when a new word come add space and add it
+            if(ans == "" && x != ""){
+                ans += x;
             }
-            else if(s[prev] != ' ' && s[i] != ' '){
-                x+=s[i];
-            }
-
-            if(s[i] == ' ') {
-                prev = i;
-                x = "";
-                continue;
+            else if(x != ""){
+                ans = " " + ans;
+                ans = x + ans;
             }
 
-            prev = i;
+           x = "";
         }
         
-        string ans ;
-
-        for(int i = temp.size()-1 ; i >= 0 ; i--){
-            ans += temp[i];
-            if(i != 0) ans+= " ";
-        }
-
         return ans;
     }
 };
