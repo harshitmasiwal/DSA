@@ -1,24 +1,26 @@
 class Solution {
 public:
-    vector<int> twoSum(vector<int>& arr, int target) {
-        
-        int len = arr.size();
-        int start = 0 , end = len-1;
-        vector<int>ans;
+    vector<int> twoSum(vector<int>& numbers, int target) {
 
-        while(start < end ){
-            if(arr[start] + arr[end] == target){
-                ans.push_back(start+1);
-                ans.push_back(end+1);
-                return ans;
+        int left = 0 ; 
+        int right = numbers.size()-1;
+
+        while(left < right){
+
+            if(target-numbers[left] == numbers[right]){
+                return {left+1,right+1};
             }
-            else if(arr[start] + arr [end] > target){
-                end-- ;
+
+            else if(target - numbers[left] > numbers[right]){
+                left++;
             }
-            else {
-                start++;
+
+            else{
+                right--;
             }
+
         }
-        return ans ;
+
+        return {};
     }
 };
