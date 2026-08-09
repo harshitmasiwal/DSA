@@ -3,6 +3,12 @@ public:
 
     bool solve(int i , vector<int>&nums,int sum,int curr,vector<vector<int>>&memo){
 
+        if(curr > sum){
+            return false;
+        }   
+        if(i < 0){
+            return false;
+        }
 
         if( sum-curr == curr ){
             return true;
@@ -10,15 +16,11 @@ public:
         if(memo[i][curr] != -1){
             return memo[i][curr];
         }
-        if(i < 0){
-            return false;
-        }
+        
         if(i == 0 ){
             return curr+nums[0] == sum-nums[0]-curr;
         }
-        if(curr > sum){
-            return false;
-        }   
+        
        
 
 
